@@ -6,10 +6,13 @@ from mss import mss
 from json import dumps
 from time import sleep
 import constants
+import random
+import string
 
 mqttBroker = 'test.mosquitto.org'
-deviceId = 1
-deviceRef = 'xxxxxx'
+deviceId = random.randint(1,5000)
+deviceRef = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(6))
+
 
 
 
@@ -22,9 +25,9 @@ sct = mss()
 
 
 # We shall also fake device coordinates
-longitude = 8.1
-latitude = 9.11
-azimuth = 1.0
+longitude = random.uniform(-10, 10)
+latitude = random.uniform(-10, 10)
+azimuth = random.uniform(-10, 10)
 
 iter = 60
 while True:

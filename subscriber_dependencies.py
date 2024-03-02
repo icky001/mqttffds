@@ -64,7 +64,7 @@ def receivedFeed(dataDict: dict):
                         INSERT INTO `notification` (content, regionId, createdAt)
                         VALUES (%s, %s)
                     '''
-                    cursor.execute(sql, (supervisionStatus, result[0]['regionId'], str(datetime.now())))
+                    cursor.execute(sql, (supervisionStatus, result[0]['regionId'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S")))
                     db_dependencies.commit()
     
     finally:
